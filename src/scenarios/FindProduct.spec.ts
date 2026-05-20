@@ -7,7 +7,7 @@ test.describe('Find Products', () => {
   const CONFIG = join(__dirname, '../support/fixtures/config.yml');
   let homePage: HomePage;
   const BASE_URL = TheConfig.fromFile(CONFIG)
-    .andPath('application.automationpractice_QA')
+    .andPath('application.automationpractice_products')
     .retrieveData();
 
   test.beforeEach(async ({ page }) => {

@@ -12,7 +12,7 @@ export default class HomePage extends BasePage {
   }
 
   async searchProductByName(): Promise<void> {
-    await this.homeElements.getSearchField().fill('t-shirts');
+    await this.homeElements.getSearchField().fill('Top');
     await this.homeElements.getSearchButton().click();
   }
 

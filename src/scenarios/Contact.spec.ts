@@ -7,7 +7,7 @@ test.describe('Formulário de contato', () => {
   const CONFIG = join(__dirname, '../support/fixtures/config.yml');
   let contactPage: ContactPage;
   const BASE_URL = TheConfig.fromFile(CONFIG)
-    .andPath('application.automationpractice_QA')
+    .andPath('application.automationpractice_contact')
     .retrieveData();
 
   test.beforeEach(async ({ page }) => {

@@ -8,15 +8,15 @@ export default class HomeElements extends BaseElements {
   }
 
   getSearchField(): Locator {
-    return this.page.locator('#search_query_top');
+    return this.page.locator('#search_product');
   }
 
   getSearchButton(): Locator {
-    return this.page.locator('button[name="submit_search"]');
+    return this.page.locator('#submit_search');
   }
 
   getProductCount(): Locator {
-    return this.page.locator('span[class="heading-counter"]');
+    return this.page.locator('.productinfo').first();
   }
 
   getLoginField(): Locator {

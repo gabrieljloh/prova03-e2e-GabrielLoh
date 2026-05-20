@@ -7,16 +7,12 @@ export default class ContactElements extends BaseElements {
     this.page = page;
   }
 
-  getContactLink(): Locator {
-    return this.page.locator('#contact-link >> text=Contact us');
-  }
-
   getEmailField(): Locator {
-    return this.page.locator('#email');
+    return this.page.locator('input[name="email"]');
   }
 
   getNroOrdemField(): Locator {
-    return this.page.locator('#id_order');
+    return this.page.locator('input[name="subject"]');
   }
 
   getMessageField(): Locator {
@@ -24,16 +20,14 @@ export default class ContactElements extends BaseElements {
   }
 
   getSendButton(): Locator {
-    return this.page.locator('#submitMessage');
+    return this.page.locator('input[name="submit"]');
   }
 
   getSubjectSelect(): Locator {
-    return this.page.locator('#id_contact');
+    return this.page.locator('input[name="name"]');
   }
 
   getMessageOK(): Locator {
-    return this.page.locator(
-      'text=Your message has been successfully sent to our team.'
-    );
+    return this.page.getByRole('heading', { name: 'Contact Us' });
   }
 }
