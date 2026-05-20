@@ -21,11 +21,15 @@ In order to execute this project you must follow the steps below:
 All execution artifacts can be found in `./artifacts`, if you want to remove these files run `npm run clean`.
 
 ## Using ZeroStep AI
+
 </br>
 
-To use the AI ​​feature with ZeroStep, you must create the `zerostep.config.json` file in the root of the project and add your ZeroStep token.
+To use the AI feature with ZeroStep, you must create the `zerostep.config.json` file in the root of the project and add your ZeroStep token.
+
+For GitHub Actions, add a repository secret named exactly `ZEROSTEP_TOKEN` (Settings → Secrets and variables → Actions) with the token from https://app.zerostep.com. The workflow writes `zerostep.config.json` at runtime; do not commit the token.
 
 ## Project Structure
+
 </br>
 <ul>
     <li>Scenarios: Test scenario mapping</li>

@@ -12,6 +12,8 @@ jobs:
   build:
     name: Run E2E Tests
     runs-on: ubuntu-latest
+    env:
+      ZEROSTEP_TOKEN: ${{ secrets.ZEROSTEP_TOKEN }}
     steps:
       - uses: actions/checkout@v5.0.0
       - name: Use Node.js 21
@@ -19,11 +21,16 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
+      - name: Setup ZeroStep token
+        run: |
+          if [ -z "$ZEROSTEP_TOKEN" ]; then
+            echo "::error::Secret ZEROSTEP_TOKEN vazio ou ausente. Em github.com → Settings → Secrets and variables → Actions, crie o secret com nome exato ZEROSTEP_TOKEN (valor em https://app.zerostep.com). Em PRs de fork, secrets do repositório base não são expostos."
+            exit 1
+          fi
+          node -e "require('fs').writeFileSync('zerostep.config.json', JSON.stringify({ TOKEN: process.env.ZEROSTEP_TOKEN }))"
       - run: npm install
       - run: npx playwright install
       - run: npm run actions
-        env:
-          ZEROSTEP_TOKEN: ${{ secrets.ZEROSTEP_TOKEN }}
 
   sonarcloud:
     name: Run SonarCloud
