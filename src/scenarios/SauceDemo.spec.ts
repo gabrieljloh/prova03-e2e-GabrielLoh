@@ -4,7 +4,13 @@ import { TheConfig } from 'sicolo';
 import CadastroPage from '../support/pages/CadastroPage';
 
 test.describe('Sauce Demo', () => {
-  const CONFIG = join(__dirname, '../support/fixtures/config.yml');
+  const CONFIG = join(
+    process.cwd(),
+    'src',
+    'support',
+    'fixtures',
+    'config.yml'
+  );
   let cadastroPage: CadastroPage;
   const BASE_URL = TheConfig.fromFile(CONFIG)
     .andPath('application.sauceDemo')

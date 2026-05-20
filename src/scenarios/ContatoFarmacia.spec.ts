@@ -4,7 +4,13 @@ import { TheConfig } from 'sicolo';
 import FarmaciaPage from '../support/pages/FarmaciaPage';
 
 test.describe.skip('Testes funcionais no site da Trier Sistemas', () => {
-  const CONFIG = join(__dirname, '../support/fixtures/config.yml');
+  const CONFIG = join(
+    process.cwd(),
+    'src',
+    'support',
+    'fixtures',
+    'config.yml'
+  );
   let farmaciaPage: FarmaciaPage;
   const BASE_URL = TheConfig.fromFile(CONFIG)
     .andPath('application.farmacia')

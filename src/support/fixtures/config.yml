@@ -1,9 +1,13 @@
 application:
-  base_url: "https://google.com"
-  automationpractice_QA: "https://automationexercise.com/"
-  automationpractice_contact: "https://automationexercise.com/contact_us"
-  automationpractice_products: "https://automationexercise.com/products"
-  bugereats_QA: "https://buger-eats.vercel.app/" 
-  sauceDemo: "https://www.saucedemo.com/"
-  farmacia: "https://triersistemas.com.br/contato"
-  empresa: "https://www.betha.com.br/contato"
+  base_url: 'https://demoqa.com'
+  automationpractice_QA: 'https://automationexercise.com/'
+  automationpractice_contact: 'https://automationexercise.com/contact_us'
+  automationpractice_products: 'https://automationexercise.com/products'
+  bugereats_QA: 'https://buger-eats.vercel.app/'
+  sauceDemo: 'https://www.saucedemo.com/'
+  farmacia: 'https://triersistemas.com.br/contato'
+  empresa: 'https://www.betha.com.br/contato'
+  orangehrm_login: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+  orangehrm_dashboard: 'https://opensource-demo.orangehrmlive.com/web/dashboard/index'
+  orangehrm_user: 'Admin'
+  orangehrm_password: 'admin123'
