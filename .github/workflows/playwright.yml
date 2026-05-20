@@ -2,13 +2,15 @@ name: Playwright tests
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      ZEROSTEP_TOKEN: ${{ secrets.ZEROSTEP_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,6 +22,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Setup ZeroStep token
+        run: |
+          if [ -z "$ZEROSTEP_TOKEN" ]; then
+            echo "::error::Secret ZEROSTEP_TOKEN vazio ou ausente. Em github.com → Settings → Secrets and variables → Actions, crie o secret com nome exato ZEROSTEP_TOKEN (valor em https://app.zerostep.com)."
+            exit 1
+          fi
+          node -e "require('fs').writeFileSync('zerostep.config.json', JSON.stringify({ TOKEN: process.env.ZEROSTEP_TOKEN }))"
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
